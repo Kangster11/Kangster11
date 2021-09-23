@@ -1,0 +1,79 @@
+import turtle as trtl
+import keyboard
+import time
+ 
+screen_h = 2560
+screen_w = 1440
+startx = 0
+starty = -400
+turtle_scale = 1.5
+ 
+def move():
+ eggdog.fd(500)
+ 
+def backmove():
+   eggdog.bk(500)
+ 
+def turn_left():
+ eggdog.speed(0)
+ eggdog.lt(90)
+ eggdog.speed(2)
+ 
+wn = trtl.Screen()
+wn.setup(width=screen_w, height=screen_h)
+eggdog_image = "eggdog2.gif"
+wn.addshape(eggdog_image)
+ 
+eggdog = trtl.Turtle(shape=eggdog_image)
+eggdog.hideturtle()
+#eggdog.color("darkorchid")
+#eggdog.pencolor("darkorchid")
+eggdog.penup()
+#eggdog.setheading(90)
+eggdog.turtlesize(turtle_scale, turtle_scale)
+eggdog.goto(startx, starty)
+eggdog.speed(2)
+eggdog.showturtle()
+ 
+#background pic
+wn.bgpic("palmtreebackground.gif")
+ 
+# move eggdog with loop on keypress
+ 
+ 
+ 
+ 
+'''while True:
+       move()
+       backmove()
+       backmove()
+       move()'''
+ 
+while True:
+ trtl.listen()
+ trtl.onkey(move(), "Right")
+ trtl.onkey(backmove(), "Left")
+ while True:
+   trtl.register_shape("eggdog2.gif")
+   trtl.shape("eggdog2.gif")
+   time.sleep(.2)
+   trtl.register_shape("eggdog3.gif")
+   trtl.shape("eggdog3.gif")
+   time.sleep(.2)
+   trtl.register_shape("eggdog4.gif")
+   trtl.shape("eggdog4.gif")
+   time.sleep(.2)
+   trtl.register_shape("eggdog5.gif")
+   trtl.shape("eggdog5.gif")
+   time.sleep(.2)
+   trtl.register_shape("eggdog6.gif")
+   trtl.shape("eggdog5.gif")
+ 
+ 
+ 
+ 
+screen.listen()
+ 
+#---- end eggdog movement
+ 
+wn.mainloop()
